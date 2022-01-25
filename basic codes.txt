@@ -1,0 +1,184 @@
+#   ctrl + / to comment a line
+#                               getting user input
+# p = input('Enter value for P ')
+# n = input('Enter value for n ')
+# r = input('Enter value for r ')
+# p = int(p)
+# n = int(n)
+# r = int(r)
+# si = 35
+# print(si)
+#                     if loop, elif loop etc
+# if si >= 40:
+#     print("t1")
+#     print('t2')
+# else:
+#     print('t3')
+#                         list----same as arrays
+fruits = ['Banana', 'apple', 'orange']
+
+# print(fruits.index('apple'))
+
+# functions--------
+# def square():
+#     for x in range(0, 10):
+#         print(x * x)
+#
+# square()
+#                         range function ---
+# v = list(range(1, 20))
+# print(list(range(1, 20)))
+#                     for loop  two ways to implement through range or through list.
+# for x in range(0, 10,2):
+#     print(x)
+#
+# for x in fruits:
+#     print(x)
+
+#                   While loop
+# counter = 0
+# while counter <10:
+#     print(counter)
+#     counter += 1
+#                         Functions
+
+# def bmi(height, weight):
+#     return weight / (height * height)
+#
+#
+# print(bmi(174, 70))
+
+#               Exception handling.
+# try:
+#     print(10//0)
+#
+# except ZeroDivisionError:
+#     print('Cant divide by zero')
+#
+# finally:
+#     print('finaly')
+
+#                     File Handling
+
+# f1 = open("demo.txt", "a")  # Read mode w-- write mode a----append mode.
+# # print(f1.read())
+# f1.write(" Another line")
+# f1.close()
+
+# f1 = open("demo.txt", "r")  #Read mode w-- write mode a----append mode.
+# # print(f1.read())
+# print(f1.readline())
+# print(f1.readline()) #----printing second line.
+# f1.close()
+
+#                           Dictionaries ---- similar to maps has a key value pair.
+products = {"bulb": 20, "Candle": 10}
+
+
+# print(products)
+# x = input('Enter which product')
+# if(x in products):
+#     print(products[x])
+# else:
+#     print('Not found')
+
+#                       Tuples are like immutable or constants. ---- uses () or even no brackets
+# tup1 = ('physics', 'chemistry', 1997, 2000);
+# tup2 = (1, 2, 3, 4, 5 );
+# tup3 = "a", "b", "c", "d";
+
+#                       Calling function within a function.
+
+# def student_discount(price):
+#     price = price - (price * 10) / 100
+#     return price
+#
+#
+# def additional_discount(newprice):
+#     newprice = newprice - (newprice * 5) / 100
+#     return newprice
+#
+#
+# print(additional_discount(student_discount(200)))
+
+#           lambda expressions. ---- kind of anonymous function
+# result = (lambda x: x*(x+5)**2)(5)
+# print(result)
+# result = (lambda x: x * (x + 5) ** 2)
+# print(result(4))
+
+#               Map function to apply certain function to a list and returns the the applied object
+
+# l1 = [59, 87, 24, 87, 89]
+# def additional_discount(newprice):
+#     newprice = newprice - (newprice * 5) / 100
+#     return newprice
+#
+# print(list(map(additional_discount,l1)))
+
+# /////                                          Class and Object Oriented programming.
+
+# class Computer:
+#     def __init__(self, ram, storage):
+#         self.ram = ram
+#         self.storage = storage
+#
+#     def get_spec(self):
+#         print("The Ram is {} and storage is {}".format(self.ram, self.storage))
+#
+#
+# class Laptop( Computer ):
+#     def __init__(self, ram, storage, weight):
+#         self.weight = weight
+#
+#         Computer.__init__(self, ram, storage)
+#
+#     def get_spec(self):
+#         print("The Ram is {} and storage is {} and weight is {}".format(self.ram, self.storage, self.weight))
+#
+#
+# l1 = Laptop(3, 240, 2)
+# l1.get_spec()
+
+# Operator overloadin example in the below example change * to addition.
+
+class Number:
+    def __init__(self, num):
+        self.num = num
+
+    def __mul__(self, other):
+        return self.num + other.num
+
+
+n1 = Number(6)
+n2 = Number(7)
+
+print(n1 * n2)
+
+#               Django basics
+# django-admin startproject firstproject----------to start a project 'firstproject' just a name of the project
+# \firstproject>django-admin startapp firstapp-----------------to create and app again 'firstapp just a name'
+#  to run the server -----D:\Coding\django\firstproject>python manage.py runserver
+
+				 to create database db classes to be created in models.py. then run this on cmd  ////////the commands about create a table of the objects
+python.exe manage.py makemigrations 
+python.exe manage.py migrate
+
+			
+				//to access database from command prompt open python shell
+python manage.py shell
+
+from firstapp.models import books  /////-----myfristapp is the name of the app and books is the created class in the models.py
+Book.objects.all()
+a = books(name="Harry",desc="testing the order",price=30)
+a.save()
+
+exit() -----to exit the shell
+
+
+//// to create a superuser 
+
+python manage.py createsuperuser 
+
+/// to view your db or class in admin panel  you have to add this on admin.py check admin.py of demo for examples
+
