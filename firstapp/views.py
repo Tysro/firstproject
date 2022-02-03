@@ -14,8 +14,8 @@ def index(request):
     return render(request,'firstapp/index.html',context)
 
 def detail(request,book_id):
-    book_list=Book.objects.all()
-    context ={
-        'book_list':book_list
-    }
-    return HttpResponse("This is book % s" % book_id)
+    book=Book.objects.get(id=book_id)
+    
+    return render(request,'firstapp/details.html',{
+        'book':book
+    })
