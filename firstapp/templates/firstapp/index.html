@@ -1,10 +1,6 @@
-<html>
-    <head>
-    </head>
-    <body>
+{% extends 'firstapp/base.html' %}
+{% block body %}
       {% for book in book_list %}
           <a href="{% url 'firstapp:detail' book.id %}">{{book}} </a> <br>
       {% endfor %}
-    </body>
-
-</html>
+{% endblock %}   

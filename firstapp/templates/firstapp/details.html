@@ -1,3 +1,6 @@
-{{book.name}} <br>
-{{book.desc}}   <br>
-{{book.price}}
+{% extends 'firstapp/base.html' %}
+    {% block body %}
+        {{book.name}} <br>
+        {{book.desc}} <br>
+        {{book.price}}
+    {% endblock %}
