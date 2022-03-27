@@ -8,5 +8,7 @@ app_name = 'firstapp'  #this is a namespace the variable has special meaning on 
 
 urlpatterns = [
     path('',views.index, name='index' ),
-    path('book<int:book_id>/',views.detail, name='detail' ),
+    path('book/<int:book_id>',views.detail, name='detail' ),
+    path('add/',views.add_book, name='add_book' ),
+    path('update/<int:id>',views.update, name='update' ),
 ]

@@ -250,3 +250,17 @@ class Book(models.Model):
     desc= models.CharField(max_length=300)
     price= models.IntegerField()
     book_image = models.ImageField(default='default.jpg',upload_to='book_images/')
+to add images need to change settings.py and urls.py
+eg
+import os
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL='/media/'
+   under static  settings.py and 
+
+from .import settings
+from django.conf.urls.static import static
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include('firstapp.urls') ),
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+in urls.py
